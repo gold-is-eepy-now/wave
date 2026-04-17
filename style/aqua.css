@@ -1,0 +1,93 @@
+/*
+ * AquaDE theme (Aqua-inspired)
+ * Keep this tiny and tweakable for open-source experimentation.
+ */
+
+* {
+  font-family: "Cantarell", "Noto Sans", sans-serif;
+  color: #f3f8ff;
+}
+
+window.desktop-window {
+  background: transparent;
+}
+
+.shortcut-column {
+  padding: 8px;
+}
+
+button.desktop-shortcut {
+  min-width: 118px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.50);
+  background-image: linear-gradient(to bottom,
+    rgba(255, 255, 255, 0.28),
+    rgba(190, 220, 255, 0.16));
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.35) inset,
+              0 4px 10px rgba(7, 21, 49, 0.35);
+  padding: 6px 10px;
+}
+
+button.desktop-shortcut:hover {
+  background-image: linear-gradient(to bottom,
+    rgba(255, 255, 255, 0.42),
+    rgba(140, 196, 255, 0.23));
+}
+
+window.panel-window {
+  background-image: linear-gradient(to bottom,
+    rgba(247, 252, 255, 0.72),
+    rgba(164, 189, 210, 0.68));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.65);
+}
+
+.panel-row {
+  padding: 0 10px;
+}
+
+.panel-brand {
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.panel-title {
+  font-weight: 600;
+  color: rgba(235, 245, 255, 0.95);
+}
+
+.panel-clock {
+  font-weight: 700;
+}
+
+window.dock-window {
+  background: transparent;
+}
+
+.dock-frame {
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background-image: linear-gradient(to bottom,
+    rgba(248, 252, 255, 0.35),
+    rgba(103, 136, 174, 0.30));
+  box-shadow: 0 2px 0 rgba(255, 255, 255, 0.45) inset,
+              0 12px 20px rgba(0, 0, 0, 0.34);
+}
+
+button.dock-icon {
+  min-width: 48px;
+  min-height: 48px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background-image: linear-gradient(to bottom,
+    rgba(255, 255, 255, 0.72),
+    rgba(161, 198, 238, 0.43));
+  color: #0f2f59;
+  font-size: 24px;
+}
+
+button.dock-icon:hover {
+  transform: translateY(-2px);
+  background-image: linear-gradient(to bottom,
+    rgba(255, 255, 255, 0.85),
+    rgba(177, 214, 255, 0.62));
+}

@@ -1,0 +1,16 @@
+[package]
+name = "aquade"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Minimal Aqua-inspired desktop shell prototype in Rust + GTK4"
+
+[dependencies]
+gtk4 = "0.8.2"
+gdk4 = "0.8.2"
+gdk4-x11 = "0.8.2"
+glib = "0.19.5"
+gio = "0.19.5"
+cairo-rs = { version = "0.19.4", package = "cairo-rs" }
+chrono = { version = "0.4.38", default-features = false, features = ["clock"] }
+x11rb = { version = "0.13.0", default-features = false, features = ["xfixes"] }
