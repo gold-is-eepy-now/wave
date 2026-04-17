@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=SnowDesk (Wayland)
+Comment=Snow Leopard-inspired desktop environment prototype (Wayland)
+Exec=/usr/local/bin/snowdesk-session
+Type=Application
+DesktopNames=SnowDesk
