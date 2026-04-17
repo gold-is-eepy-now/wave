@@ -1,5 +1,3 @@
-use std::thread;
-use std::time::Duration;
 use ui::aqua;
 
 #[derive(Debug, Clone)]
@@ -67,18 +65,8 @@ impl Dock {
 }
 
 fn main() {
-    let oneshot = std::env::args().any(|a| a == "--oneshot");
     println!("SnowDesk Dock prototype");
     let mut dock = Dock::new();
     dock.reorder(2, 1);
     dock.render_preview(1);
-
-    if oneshot {
-        return;
-    }
-
-    loop {
-        thread::sleep(Duration::from_secs(12));
-        dock.render_preview(1);
-    }
 }

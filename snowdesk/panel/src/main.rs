@@ -1,5 +1,4 @@
-use std::thread;
-use std::time::{Duration, SystemTime, UNIX_EPOCH};
+use std::time::{SystemTime, UNIX_EPOCH};
 use ui::aqua;
 
 #[derive(Debug)]
@@ -59,17 +58,6 @@ impl TopPanel {
 }
 
 fn main() {
-    let oneshot = std::env::args().any(|a| a == "--oneshot");
     println!("SnowDesk Panel prototype (global menubar model)");
-    let panel = TopPanel::new();
-    panel.render();
-
-    if oneshot {
-        return;
-    }
-
-    loop {
-        thread::sleep(Duration::from_secs(10));
-        panel.render();
-    }
+    TopPanel::new().render();
 }

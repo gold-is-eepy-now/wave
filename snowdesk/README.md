@@ -5,7 +5,7 @@ SnowDesk is a from-scratch desktop environment prototype for Debian Linux that r
 ## High-level architecture
 
 ### 1. `wm` — Wayland compositor/window manager skeleton
-- Current backend support: **X11-first runtime (LightDM compatible)** with explicit Wayland mode flag for future wlroots integration.
+- Planned backend: **wlroots** (Wayland-first), X11 fallback module possible.
 - Current prototype provides:
   - scene/window model abstraction
   - animation scheduler (150–300 ms easing)
@@ -91,18 +91,14 @@ cargo build --workspace
 
 ### Run components individually
 ```bash
-cargo run -p wm -- --oneshot
-cargo run -p panel -- --oneshot
-cargo run -p dock -- --oneshot
+cargo run -p wm
+cargo run -p panel
+cargo run -p dock
 ```
 
-### Run an X11 shell session manually (for LightDM/X11 systems)
-```bash
-bash scripts/run_x11_session.sh
-```
-### Install session prototype (LightDM friendly)
+### Install session prototype
 ```bash
 bash scripts/install_debian.sh
 ```
 
-This installs binaries under `/usr/local/bin`, registers `/usr/share/xsessions/snowdesk.desktop` for LightDM/X11, and also installs a Wayland session file.
+This installs binaries under `/usr/local/bin` and registers `/usr/share/wayland-sessions/snowdesk.desktop`.

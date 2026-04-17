@@ -1,23 +1,5 @@
 use std::collections::VecDeque;
-use std::thread;
-use std::time::Duration;
 use ui::aqua;
-
-#[derive(Debug, Clone, Copy)]
-enum Backend {
-    X11,
-    Wayland,
-}
-
-impl Backend {
-    fn detect() -> Self {
-        if std::env::var_os("WAYLAND_DISPLAY").is_some() {
-            Backend::Wayland
-        } else {
-            Backend::X11
-        }
-    }
-}
 
 #[derive(Debug, Clone)]
 struct Window {
@@ -85,10 +67,7 @@ impl CompositorState {
 
     fn animate(&self, label: &'static str, duration_ms: u16) {
         let anim = Animation { label, duration_ms };
-        println!(
-            "[wm] animation={} duration={}ms",
-            anim.label, anim.duration_ms
-        );
+        println!("[wm] animation: {:?}", anim);
         println!(
             "[wm] blur+shadow pass scheduled with radius {:?}",
             aqua::WINDOW_CORNER_RADIUS
@@ -111,7 +90,8 @@ impl CompositorState {
     }
 }
 
-fn run_event_loop(backend: Backend, oneshot: bool) {
+fn main() {
+    println!("SnowDesk WM skeleton booting (Wayland backend to be integrated)");
     let mut wm = CompositorState::default();
     wm.push_event(WmEvent::OpenWindow {
         title: "Finder".into(),
@@ -122,30 +102,4 @@ fn run_event_loop(backend: Backend, oneshot: bool) {
     wm.push_event(WmEvent::ToggleExpose);
     wm.push_event(WmEvent::CloseWindow { id: 1 });
     wm.process();
-
-    if oneshot {
-        println!("[wm] oneshot mode complete");
-        return;
-    }
-
-    println!("[wm] entering persistent session loop on {:?}", backend);
-    loop {
-        thread::sleep(Duration::from_secs(5));
-        println!("[wm] heartbeat: session alive");
-    }
-}
-
-fn main() {
-    let args: Vec<String> = std::env::args().collect();
-    let oneshot = args.iter().any(|arg| arg == "--oneshot");
-    let backend = if args.iter().any(|arg| arg == "--x11") {
-        Backend::X11
-    } else if args.iter().any(|arg| arg == "--wayland") {
-        Backend::Wayland
-    } else {
-        Backend::detect()
-    };
-
-    println!("SnowDesk WM booting with backend: {:?}", backend);
-    run_event_loop(backend, oneshot);
 }
