@@ -1,7 +1,0 @@
-[package]
-name = "dock"
-version.workspace = true
-edition.workspace = true
-
-[dependencies]
-ui = { path = "../ui" }

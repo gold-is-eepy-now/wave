@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-set -euo pipefail
-
-snowdesk-panel &
-snowdesk-dock &
-exec snowdesk-wm

@@ -1,7 +1,0 @@
-[package]
-name = "wm"
-version.workspace = true
-edition.workspace = true
-
-[dependencies]
-ui = { path = "../ui" }

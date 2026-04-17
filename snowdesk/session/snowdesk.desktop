@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=SnowDesk
-Comment=Snow Leopard-inspired desktop environment prototype
-Exec=/usr/local/bin/snowdesk-session
-Type=Application
-DesktopNames=SnowDesk
