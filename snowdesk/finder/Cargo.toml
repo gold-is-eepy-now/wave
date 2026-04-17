@@ -1,0 +1,4 @@
+[package]
+name = "finder"
+version.workspace = true
+edition.workspace = true

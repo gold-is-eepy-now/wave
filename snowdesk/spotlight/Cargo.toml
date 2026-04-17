@@ -1,0 +1,4 @@
+[package]
+name = "spotlight"
+version.workspace = true
+edition.workspace = true
